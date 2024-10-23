@@ -1,39 +1,28 @@
 package labs
 
-import "fmt"
+import (
+	"fmt"
+)
 
 type Sydno struct {
-	width, height, tosadka, polnota float64
+	width, height, osadka, polnota float64
 }
 
 func (t Sydno) Size() (float64, float64, float64, float64) {
-	return t.width, t.height, t.tosadka, t.polnota
+	return t.width, t.height, t.osadka, t.polnota
 }
 
-func (t Sydno) SetSize(width, height, tosadka, polnota float64) {
-	t.width = width
-	t.height = height
-	t.tosadka = tosadka
-	t.polnota = polnota
-}
-
-func (t Sydno) Calculate_Area() float64 {
+func (t Sydno) Calculate_Area(float64, float64) float64 {
 	return t.height * t.width
 }
 
-//водоизмещение
-func (t Sydno) Water() float64 {
+func (t Sydno) Displacement() float64 {
 	return t.height * t.width * t.polnota
 }
 
 func PrintSydnoInfo(sydno Sydno) {
-	width, height, tosadka, polnota := sydno.Size()
-	fmt.Printf("Размеры судна: Ширина = %.2f, Высота = %.2f, Осадка судна = %.2f, Коэффициент полноты = %.2f\n", width, height, tosadka, polnota)
-	fmt.Printf("Площадь судна: %.2f м²\n", sydno.Calculate_Area())
-	fmt.Printf("Водоизмещение судна: %.2f м³\n", sydno.Water())
-}
-func FinishSudno() {
-	sydno := Sydno{}
-	sydno.SetSize(1.25, 3.4, 2.3, 5.65)
-	PrintSydnoInfo(sydno)
+	width, height, osadka, polnota := sydno.Size()
+	fmt.Printf("Размеры судна: Ширина = %.2f, Высота = %.2f, Осадка судна = %.2f, Коэффициент полноты = %.2f\n", width, height, osadka, polnota)
+	fmt.Printf("Площадь судна: %.2f м²\n", sydno.Calculate_Area(width, height))
+	fmt.Printf("Водоизмещение судна: %.2f м³\n", sydno.Displacement())
 }
