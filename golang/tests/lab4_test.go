@@ -8,13 +8,9 @@ import (
 	"isuct.ru/informatics2022/labs"
 )
 
-//	var tests = []Test_lab4{
-//		{in: 1.2, out: 95.65},
-//		{in: 1.28, out: 105.92},
-//		{in: 1.36, out:116.80},
 func TestEquation(t *testing.T) {
-	var a = 0.05
-	var b = 0.06
+	var a = 2.5
+	var b = 4.6
 	tests := []struct {
 		name string
 		x    float64
